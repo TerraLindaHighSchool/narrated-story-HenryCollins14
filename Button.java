@@ -15,20 +15,19 @@ public class Button extends Actor
     private static final Color transparent = new Color(0,0,0,0);
     private GreenfootImage background;
     private String prefix;
-    private String narration;
+    
+    GreenfootSound narration = new GreenfootSound("Narrated story.mp3");
     public Button()
     {
       this("Click to Begin Story");
-        
-      if(Greenfoot.mouseClicked(this) && !narration.isPlaying())
-      {
-           narration.play("Narrated story");
-      }
     }
     
     public void act()
     {
-        play();
+        if(Greenfoot.mouseClicked(this) && !narration.isPlaying())
+      {
+           narration.play();
+      }
     }
     
     /**
